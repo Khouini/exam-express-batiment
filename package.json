@@ -1,0 +1,19 @@
+{
+  "name": "expressprojectfromscratch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "i": "^0.3.7",
+    "mongoose": "^8.1.1",
+    "npm": "^10.4.0",
+    "yup": "^1.3.3"
+  }
+}
