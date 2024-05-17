@@ -8,8 +8,8 @@ router.patch('/:id', updateUser);
 router.delete('/:id', deleteUser);
 router.get('/name/:name', getUserByName);
 
-router.get("/chat", (req, res, next) => {
-    res.render("chat");
-  });
-  
+router.get('/chat', (req, res, next) => {
+  res.render('chat');
+});
+
 module.exports = router;

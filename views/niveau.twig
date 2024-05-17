@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+		<label for="idNiveau">id Niveau:</label><input id="idNiveau" type="text">
+		<input onclick="construction()" type="submit" value="construire">
+		<input onclick="somme()" type="submit" value="Somme">
+		<p id="niveauxRS"></p>
+		<p id="sommeRS"></p>
+		<script>
+			const socket = io.connect();
+inputElement = document.getElementById("idNiveau");
+console.log("🚀 ~ inputElement:", inputElement)
+const niveauRSElement = document.getElementById("niveauxRS");
+const sommeRSElement = document.getElementById("sommeRS");
+console.log("🚀 ~ niveauRSElement:", niveauRSElement)
+console.log("heelo");
+console.log("value" + inputElement.value);
+console.log("emittin getNiveauxNonBati");
+socket.emit("getNiveauxNonBati")
+socket.on("niveauxNonBatiData", data => {
+console.log("🚀 ~ construction ~ data:", data)
+niveauRSElement.innerHTML = data
+})
+function construction() {
+console.log("emit contruire");
+console.log("value" + inputElement.value);
+
+socket.emit("contruire", {id: inputElement.value})
+}
+function somme() {
+socket.emit("getSomme")
+}
+socket.on("sommeData", data => {
+console.log("🚀 ~ construction ~ data:", data)
+sommeRSElement.innerHTML = 'Somme= ' + data
+})
+		</script>
+	</body>
+</html>
